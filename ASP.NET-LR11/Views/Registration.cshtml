@@ -1,0 +1,107 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model LR11.Models.RegistrationModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width" />
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+        span.text-danger {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form method="post" action="/Home/Create">
+
+            <div>
+                <label asp-for="Name">Full Name:</label>
+                <input type="text" asp-for="Name" required>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Email">Email:</label>
+                <input type="email" asp-for="Email" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Date">Preferred Consultation Date:</label>
+                <input type="date" asp-for="Date" required>
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Product">Product:</label>
+                <select asp-for="Product" required>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="C#">C#</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="Fundamentals">Fundamentals</option>
+                </select>
+                <span asp-validation-for="Product" class="text-danger"></span>
+            </div>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Thank you for choosing our consultation services. We look forward to assisting you with your learning journey in technology.</p>
+    </div>
+</body>
+</html>
